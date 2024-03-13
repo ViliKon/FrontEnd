@@ -1,37 +1,18 @@
 import "./App.css";
-import { useState } from "react";
-import TodoTable from "./TodoTable";
+import TodoList from "./TodoList.jsx";
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 
 function App() {
-  const [desc, setDesc] = useState("");
-  const [date, setDate] = useState("");
-  const [todos, setTodos] = useState([]);
-
-  const handleChangeDesc = (event) => {
-    setDesc(event.target.value);
-  };
-
-  const handleChangeDate = (event) => {
-    setDate(event.target.value);
-  };
-
-  const addTodo = () => {
-    if (desc === "" || date === "") {
-      alert("Fill all values!")
-    }
-    else {
-      setTodos([...todos, { description: desc, date: date }]);
-      setDesc("");
-      setDate("");
-    }
-  };
   return (
     <>
-      <p>Descreption:<input type="text" onChange={handleChangeDesc} value={desc} />
-        Date:<input type="text" onChange={handleChangeDate} value={date} /><button onClick={addTodo}>Add</button></p>
-
-
-      <TodoTable todos={todos} setTodos={setTodos} />
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6"> My todos </Typography>
+        </Toolbar>
+      </AppBar>
+      <TodoList />
     </>
   );
 }
