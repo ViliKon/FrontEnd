@@ -22,12 +22,12 @@ function TodoList() {
 
 
     const [colDef] = useState([
-        { field: 'desc', sortable: true, filter: true },
+        { field: 'desc', sortable: true, filter: true, floatingFilter: true, animateRows: true },
         {
-            field: 'priority', sortable: true, filter: true,
+            field: 'priority', sortable: true, filter: true, floatingFilter: true, animateRows: true,
             cellStyle: params => params.value === 'High' ? { color: 'red' } : { color: 'black' }
         },
-        { field: 'date', sortable: true, filter: true }
+        { field: 'date', sortable: true, filter: true, floatingFilter: true, animateRows: true}
     ]);
 
     const addTodo = () => {
@@ -69,10 +69,10 @@ function TodoList() {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
                         label="Date"
-                        onChange={date => setTodo({...todo, date: date})}
-                        value={todo.date} 
+                        onChange={date => setTodo({ ...todo, date: date })}
+                        value={todo.date}
                         format="DD/MM/YYYY"
-                        />
+                    />
                 </LocalizationProvider>
                 <Button variant="contained" onClick={addTodo}>Add</Button>
                 <Button variant="contained" onClick={deleteTodo}>Delete</Button>
