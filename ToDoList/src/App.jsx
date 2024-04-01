@@ -1,19 +1,17 @@
 import "./App.css";
-import TodoList from "./TodoList.jsx";
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6"> My todos </Typography>
-        </Toolbar>
-      </AppBar>
-      <TodoList />
-    </>
+    <div className="App">
+      <nav>
+        <Link to={"/"}> HOME </Link>
+      
+        <Link to={"/Todo"}> TODOS </Link>
+      </nav>
+      <Outlet />
+    </div>
   );
 }
 
